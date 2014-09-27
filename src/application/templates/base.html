@@ -94,6 +94,11 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
+  
+  FB.logout(function(response) {
+  // user is now logged out
+  });
+
 </script>
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">

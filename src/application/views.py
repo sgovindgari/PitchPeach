@@ -18,7 +18,7 @@ from flask_cache import Cache
 from application import app
 from decorators import login_required, admin_required
 from forms import ExampleForm
-from models import ExampleModel
+from models import ExampleModel, User, Food
 
 
 # Flask-Cache (configured to use App Engine Memcache API)
@@ -28,11 +28,22 @@ cache = Cache(app)
 def home():
     return render_template('base.html')
 
-
 def say_hello(username):
     """Contrived example to demonstrate Flask's url routing capabilities"""
     return 'Hello %s' % username
 
+#############################################
+
+# FOOD RECOMMENDATION SYSTEM CODE GOES HERE
+
+#############################################
+
+# Given user id gets the list of foods this user likes
+def get_foods(user_id):
+    user = User.get_by_id(user_id)
+    return user.food_list
+
+################################################
 
 @login_required
 def list_examples():

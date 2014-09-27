@@ -178,17 +178,17 @@ position: absolute;
 .idk,
 .meh{
     top: -80px;
-    right: 0px;
+    right: -80px;
 }
 .no{
-    right:-80px;
+    left: 95px;
 }
 .yes{
     left: -65px;
 }
 
 .meh{
-    right: 80px;
+    left: 15px;
  
 
 }

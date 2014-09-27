@@ -218,4 +218,24 @@ position: absolute;
 #sidebar img{
     width: 150px;
 }
+#arrow{
+    position: absolute;
+    top: 50%;
+
+    right: -25px;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
+}
+#arrow img{
+    width: 150px;
+    
+}
+#arrow h4{
+    position: absolute;
+    bottom: 5px;
+    right: 40%;
+}
 

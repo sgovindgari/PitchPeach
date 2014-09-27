@@ -155,7 +155,8 @@ position: absolute;
     
 }
 #unknown img{
+    position: absolute;
+    top:-10px;
     width: 128px;
-    z-index: 123;
 }
 

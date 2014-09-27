@@ -1,6 +1,7 @@
 html{
     background-image: url(../images/wood.jpeg);
-    background-size: 1800px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 body{

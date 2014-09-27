@@ -24,9 +24,9 @@ from models import ExampleModel
 # Flask-Cache (configured to use App Engine Memcache API)
 cache = Cache(app)
 
-
+@app.route('/')
 def home():
-    return redirect(url_for('list_examples'))
+    return render_template('base.html')
 
 
 def say_hello(username):

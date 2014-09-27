@@ -7,6 +7,23 @@
 </head>
 
 <body id="food">
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1479814855629593',
+      xfbml      : true,
+      version    : 'v2.1'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <div id= "menu">
 <ul>
     <li>
@@ -20,7 +37,7 @@
         <a href="up.html">Sign Up</a>
     </li>
     <li>
-        <a href="in.html">Sign In</a>
+        <a href="https://www.facebook.com/dialog/oauth?client_id={1479814855629593}&redirect_uri=http://pitchpeaches.appspot.com/">Sign In</a>
     </li>
     </div>
 </ul>

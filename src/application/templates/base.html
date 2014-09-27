@@ -19,6 +19,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      loginInFlask(uid, accessToken);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -94,16 +95,23 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-  
+
+  function loginInFlask(uid, token) {
+      $.post("/login", {"uid": uid, "token": token},
+      function(data) {
+      if (data.status == "success") {
+          alert("backend login ok");
+        } else {
+        alert("backend login failed");
+      }
+    });
+   }
+
   FB.logout(function(response) {
-  // user is now logged out
+    FB.Auth.setAuthResponse(null, 'unknown');
   });
 
 </script>
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-<div id="status"></div>
 
 <div id= "menu">
 <ul>
@@ -130,11 +138,13 @@
 <div id="buttons">
 <ul>
 <li><a id="in" href="https://www.facebook.com/dialog/oauth?client_id=1479814855629593&redirect_uri=http://pitchpeaches.appspot.com/survey">Sign In</a></li>
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 </ul>
 </div>
 </div>
-
 </div>
+<div id="status"></div>
+
 <div id="copyright">
     <p>
         &copy; copyright 2014 all rights reserved.

@@ -96,11 +96,10 @@
   }
   
   FB.logout(function(response) {
-  // user is now logged out
+    FB.Auth.setAuthResponse(null, 'unknown');
   });
 
 </script>
-
 
 <div id= "menu">
 <ul>

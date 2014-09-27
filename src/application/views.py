@@ -18,7 +18,8 @@ from flask_cache import Cache
 from application import app
 from decorators import login_required, admin_required
 from forms import ExampleForm
-from models import ExampleModel, User, Food
+from models import ExampleModel
+from models import User, Food
 
 
 # Flask-Cache (configured to use App Engine Memcache API)

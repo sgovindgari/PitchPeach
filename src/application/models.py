@@ -20,12 +20,9 @@ class ExampleModel(ndb.Model):
 class Food(ndb.Model):
 	food_name = ndb.StringProperty(required=True)
 	food_picture = ndb.TextProperty(required=True)
-	users = ndb.StructuredProperty(User, repeated=True)
 
 class User(ndb.Model):
     # this id is facebook id
     id = ndb.IntegerProperty(required = True)
     username = ndb.StringProperty(required = True)
-    email = ndb.EmailProperty()
-    passwd = ndb.StringProperty()
     foods = ndb.StructuredProperty(Food, repeated=True)

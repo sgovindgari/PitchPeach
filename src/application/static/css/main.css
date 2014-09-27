@@ -92,11 +92,12 @@ h2{
     left: 50%;
     top: 115px;
     margin-left: -510px;
+    margin-bottom: 20px;
     border-radius: 10px;
     padding: 20px;
     color: White;
     width: 1000px;
-    height: 600px;
+    height: 580px;
   
 
     
@@ -165,17 +166,17 @@ position: absolute;
 
 .yes,
 .no,
-.idk{
+.idk,
+.meh{
     position: absolute;
     margin: auto;
 
 }
 
-#yestr img{
-}
 .yes,
 .no,
-.idk{
+.idk,
+.meh{
     top: -80px;
     right: 0px;
 }
@@ -186,7 +187,8 @@ position: absolute;
     left: -65px;
 }
 
-#idk{
+.meh{
+    right: 80px;
  
 
 }
@@ -203,22 +205,17 @@ position: absolute;
     border-radius: 10px;
 
 }
-/*.yes,
-.no{
-    top: 50%;
-    margin-top: -26px;
+#sidebar{
+    position: absolute;
+    left: 0px;
+    margin-top: 11px;
+    width: 140px;
+    padding-left: 10px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
 }
-/*
-.yes{
-    left: -26px;
-    
+#sidebar img{
+    width: 150px;
 }
 
-.no{
-    right: -26px;
-}
-.idk{
-    bottom: -26px;
-    left: 50%;
-    margin-left: -26px;
-}

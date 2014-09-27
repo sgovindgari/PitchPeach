@@ -146,10 +146,12 @@ position: absolute;
 
 
 
-#box img{
-
-
-    
+#instr{
+    position: absolute;
+    width: 80%;
+    margin-top:20px;
+    left: 50%;
+    margin-left: -35%;
 }
 .yummy{
     
@@ -158,6 +160,7 @@ position: absolute;
     left: 50%;
     margin-left: -200px;
     width:400px;
+    border-radius: 10px;
 }
 
 .yes,
@@ -185,6 +188,19 @@ position: absolute;
 
 #idk{
  
+
+}
+.banner{
+    position: absolute;
+    text-indent: 50px;
+    width: 80%;
+    margin-top:20px;
+    left: 50%;
+    margin-left: -40%;
+    width: 80%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
 
 }
 /*.yes,

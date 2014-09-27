@@ -154,5 +154,8 @@ position: absolute;
 
     
 }
-
+#unknown img{
+    width: 128px;
+    z-index: 123;
+}
 

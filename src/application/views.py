@@ -29,6 +29,10 @@ cache = Cache(app)
 def home():
     return render_template('base.html')
 
+@app.route('/survey')
+def survey():
+    return render_template('survey.html')
+
 def say_hello(username):
     """Contrived example to demonstrate Flask's url routing capabilities"""
     return 'Hello %s' % username

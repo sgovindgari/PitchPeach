@@ -1,6 +1,7 @@
 html{
     background-image: url("http://wallpaperscraft.com/image/71042/2560x1440.jpg?orig=3");
-    background-size:1800px;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 body{

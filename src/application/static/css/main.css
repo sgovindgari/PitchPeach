@@ -146,17 +146,62 @@ position: absolute;
 
 
 #box img{
-    width: 400px;
+
+
+    
+}
+.yummy{
+    
     position: absolute;
     top: 15px;
     left: 50%;
     margin-left: -200px;
+    width:400px;
+}
 
+.yes,
+.no,
+.idk{
+    position: absolute;
+    margin: auto;
+
+}
+
+#yestr img{
+}
+.yes,
+.no,
+.idk{
+    top: -80px;
+    right: 0px;
+}
+.no{
+    right:-80px;
+}
+.yes{
+    left: -65px;
+}
+
+#idk{
+ 
+
+}
+/*.yes,
+.no{
+    top: 50%;
+    margin-top: -26px;
+}
+/*
+.yes{
+    left: -26px;
     
 }
-#unknown img{
-    position: absolute;
-    top:-10px;
-    width: 128px;
-}
 
+.no{
+    right: -26px;
+}
+.idk{
+    bottom: -26px;
+    left: 50%;
+    margin-left: -26px;
+}

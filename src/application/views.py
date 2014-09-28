@@ -19,6 +19,7 @@ from application import app
 from decorators import login_required, admin_required
 from models import User, Food
 import facebook
+from forms import UserForm, FoodForm
 
 
 # Flask-Cache (configured to use App Engine Memcache API)
@@ -34,6 +35,7 @@ def login(uid, username):
     if user_form.validate_on_submit():
         user = User(user_form.username)
         user.put()
+        return render_template('in.html')
 
 @app.route('/survey')
 def survey():

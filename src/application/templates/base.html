@@ -85,7 +85,6 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       // add the user details to the database
-      alert(response.id);
 
       loginInFlask(response.id, response.name);
 

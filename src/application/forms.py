@@ -16,6 +16,6 @@ from .models import User, Food
 class UserForm(wtf.Form):
     username = wtf.TextField('Username', validators=[validators.Required()])
 
-class Food(wtf.Form):
+class FoodForm(wtf.Form):
 	name = wtf.TextField('Name', validators=[validators.Required()])
 	food_picture = wtf.TextAreaField('Picture', validators=[validators.Required()])

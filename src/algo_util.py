@@ -1,29 +1,17 @@
-import string
-import math
-from random import shuffle,sample,randint
-from operator import itemgetter
 
-# yummly credentials
-# appid: 3e049aba
-# key: ab364d21141b81e05e3ecf0b87f221ba
-import requests
+def cos_sim(a,b):
+    #a = mat([-0.711,0.730])
+    #b = mat([-1.099,0.124])
+    return dot(a,b.T)/linalg.norm(a)/linalg.norm(b)
 
-def read(fileName):
-    text_file = open(fileName, "r")
-    lines = text_file.readlines()
+a = numpy.zeros(shape=(1,num_ingredients))
 
-    data = []
-    for line in lines:
-        data.append( line[8:].strip() )
-    text_file.close()
+foodList = 
 
-    return data
-
-foodList = read("list_of_list_of_foods.txt")
 
 
 users = {}
-for user_id in range(200):
+for user_id in range(20):
     shuffle(foodList)
 
     num_entries = randint(20,50)

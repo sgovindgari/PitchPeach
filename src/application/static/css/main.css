@@ -265,4 +265,12 @@ button{
     color: inherit;
     font-size: small;
 }
-
+.Yum{
+    border: 1px Green;
+}
+.Yuk{
+    border: 1px Red;
+}
+.Meh{
+    border: 1px Yellow;
+}

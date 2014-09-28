@@ -12,6 +12,7 @@
 
 <div id="fb-root"></div>
 <script type="text/javascript">
+    var preferences= ["Pass","Pass","Pass","Pass"];
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -113,7 +114,7 @@
 </div>
 
 <div id="box">
-<div id="tr"><img class="yummy" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg">
+<div id="tr" class="pass"><img class="yummy" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg">
 <div id="1" class="yes"><a><button onclick="afunction1()">
     <h2 id="1">Yum</h2></button></a></div>
 <script>
@@ -122,6 +123,9 @@
        document.getElementById("2").style.backgroundColor="rgb(214,127,0)";
        document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
        document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
+       document.getElementById("tr").className="Yum";
+       preferences[0]="Yum";
+       
     
        
     }
@@ -135,7 +139,9 @@
        document.getElementById("2").style.backgroundColor="red";
        document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
        document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
-       document.getElementById("4").style.backgroundColor="rgb(214,127,0)";  
+       document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
+       document.getElementById("tr").className="Yuk";
+       preferences[0]="Yuk";
     }
 </script>
 <div class="idk" id="3">
@@ -147,6 +153,8 @@
         document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("3").style.backgroundColor="grey";
         document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("tr").className="Pass";
+        preferences[0]="Pass";
        
     }
 </script>
@@ -161,6 +169,8 @@
         document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("4").style.backgroundColor="yellow";
+        document.getElementById("tr").className="Meh";
+        preferences[0]="Meh";
     
        
     }
@@ -174,7 +184,8 @@
         document.getElementById("6").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("7").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("8").style.backgroundColor="rgb(214,127,0)";
-    
+        document.getElementById("tl").className="Yum";
+        preferences[1]="Yum";
        
     }
 </script>
@@ -188,6 +199,8 @@
         document.getElementById("6").style.backgroundColor= "red";
         document.getElementById("7").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("8").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("tl").className="Yuk";
+        preferences[1]="Yuk";
     
        
     }
@@ -201,6 +214,8 @@
         document.getElementById("6").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("7").style.backgroundColor="grey";
         document.getElementById("8").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("tl").className="Pass";
+        preferences[1]="Pass";
     
        
     }
@@ -214,6 +229,8 @@
         document.getElementById("6").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("7").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("8").style.backgroundColor="yellow";
+        document.getElementById("tl").className="Meh";
+        preferences[1]="Meh";
     
        
     }
@@ -229,6 +246,9 @@
         document.getElementById("10").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("11").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("12").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("br").className="Yum";
+        preferences[2]="Yum";
+        
     
        
     }
@@ -241,6 +261,8 @@
         document.getElementById("10").style.backgroundColor= "red";
         document.getElementById("11").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("12").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("br").className="Yuk";
+        preferences[2]="Yuk";
     
        
     }
@@ -255,6 +277,8 @@
         document.getElementById("10").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("11").style.backgroundColor="grey";
         document.getElementById("12").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("br").className="Pass";
+        preferences[2]="Pass";
     
        
     }
@@ -270,6 +294,9 @@
         document.getElementById("10").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("11").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("12").style.backgroundColor="yellow";
+        document.getElementById("br").className="Meh";
+        preferences[2]="Meh";
+        
        
     }
 </script>
@@ -283,6 +310,8 @@
         document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("16").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("bl").className="Yum";
+        preferences[3]="Yum";
     
        
     }
@@ -298,6 +327,8 @@
         document.getElementById("14").style.backgroundColor= "red";
         document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("16").style.backgroundColor="rgb(214,127,0";
+        document.getElementById("bl").className="Yuk";
+        preferences[3]="Yuk";
     
        
     }
@@ -312,6 +343,8 @@
         document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("15").style.backgroundColor="grey";
         document.getElementById("16").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("bl").className="Pass";
+        preferences[3]="Pass";
     
        
     }
@@ -325,7 +358,9 @@
         document.getElementById("13").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
-        document.getElementById("16").style.backgroundColor="yellow";    
+        document.getElementById("16").style.backgroundColor="yellow";
+        document.getElementById("bl").className="Meh";
+        preferences[3]="Meh";
     }
 </script>
     

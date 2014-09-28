@@ -36,6 +36,13 @@ h2
 body{
     font-family: 'Marvel', 'Helvetica', sans-serif;
 }
+#pitch{
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    padding: 0px 10px 0px 10px;
+}
+#pitch,
 #menu,
 #right,
 #content,
@@ -176,7 +183,8 @@ position: absolute;
     top: 15px;
     left: 50%;
     margin-left: -200px;
-    width:400px;
+    width:360px;
+    height: 240px;
     border-radius: 10px;
 }
 

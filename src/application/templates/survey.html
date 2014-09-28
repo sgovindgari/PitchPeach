@@ -7,12 +7,15 @@
     <link href='http://fonts.googleapis.com/css?family=Marvel:400,400italic,700' rel='stylesheet' type='text/css'>
     <script language="javascript" src="../static/js/main.js"></script>
     <title>Yum Yuk</title>
-    <script type="text/javascript">    var preferences= ["Pass","Pass","Pass","Pass"];</script>
 </head>
 <body>
 
 <div id="fb-root"></div>
 <script type="text/javascript">
+      
+  var preferences= ["Pass","Pass","Pass","Pass"];
+  var userid;
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -21,7 +24,12 @@
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      
+      FB.api('/me', function(response) {
+
+        userid = response.id;
+        alert(userid);
+     // window.location = "http://pitchpeaches.appspot.com/survey";
+    });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
     } else {
@@ -39,7 +47,7 @@
     version    : 'v2.1' // use version 2.1
   });
   FB.Event.subscribe('auth.login', function () {
-    window.location = "http://pitchpeaches.appspot.com/survey";
+    //window.location = "http://pitchpeaches.appspot.com/survey";
   });
 
   // Now that we've initialized the JavaScript SDK, we call 
@@ -80,8 +88,9 @@
   // store the selections of this user for this food in the database
   function storeSelections(){
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       contentType: "application/json; charset=utf-8",
+      data: JSON.stringify({uid: userid, pref: preferences}),
       url: "/getMoreQuiz",
       success: function (data){
         //console.log(data.username);

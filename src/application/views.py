@@ -48,15 +48,27 @@ def post():
         new_user.put()
     return request.json['uid']
 
-# this method stores this user's preferences to the db
-@app.route('/storeSelections', methods=['POST'])
-def storeSelections(userid):
-    return
-
 # gets more foods when More is clicked on the profile page
-@app.route('/getMoreQuiz')
+@app.route('/getMoreQuiz', methods=['GET', 'POST'])
 def getMoreQuiz():
-    lst = yummly_util.get_recipes()
+    userid = request.json['uid']
+    # get the user and save the preferences of this user
+    q = db.GqlQuery("SELECT * "
+                        "FROM User "
+                        "WHERE id = :1", userid)
+    user = q[0]
+    preferences = request.json['pref']
+    old_lst = cache.get("old_lst")
+    food_lst = []
+    if preferences and old_lst:
+        for i in range(4):
+            food = Food(food_id = old_lst[i][0], food_pref = preferences[i])
+            food_lst.append(food)
+    user.foods = food_lst
+    user.put()
+
+    # get more recipes
+    lst = yummly_util.get_random_recipes()
     pic_url = []
     for recipe_id,recipe_url in lst:
         pic_url.append(recipe_url)
@@ -65,7 +77,8 @@ def getMoreQuiz():
 @app.route('/survey')
 @app.route('/survey/<lst>')
 def survey(lst=[]):
-    lst = yummly_util.get_recipes()
+    lst = yummly_util.get_random_recipes()
+    cache.set("old_lst", lst)
     pic_url = []
     for recipe_id,recipe_url in lst:
         pic_url.append(recipe_url)

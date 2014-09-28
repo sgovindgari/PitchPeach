@@ -13,7 +13,7 @@
 <div id="fb-root"></div>
 <script type="text/javascript">
       
-  var preferences= ["Pass","Pass","Pass","Pass"];
+  var preferences= new Array("Pass","Pass","Pass","Pass");
   var userid;
 
   function statusChangeCallback(response) {
@@ -27,7 +27,6 @@
       FB.api('/me', function(response) {
 
         userid = response.id;
-        alert(userid);
      // window.location = "http://pitchpeaches.appspot.com/survey";
     });
     } else if (response.status === 'not_authorized') {
@@ -87,11 +86,29 @@
 }
   // store the selections of this user for this food in the database
   function storeSelections(){
+    var userid = userid;
+    var preferences = preferences;
     $.ajax({
       type: 'POST',
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify({uid: userid, pref: preferences}),
       url: "/getMoreQuiz",
+      success: function (data){
+        //console.log(data.username);
+      },
+      error : function(xhr, exception){
+        console.log(exception.toString());
+      }, 
+      dataType: "json"
+    });
+  }
+
+    function getRandom(){
+
+    $.ajax({
+      type: 'GET',
+      contentType: "application/json; charset=utf-8",
+      url: "/getMoreOne",
       success: function (data){
         //console.log(data.username);
       },
@@ -118,9 +135,8 @@
     </li>
     </div>
 </ul>
-<div id="pitch"><a href=pitch.html><h1>Reccomend!</h1></a></div>
+<div id="pitch"><a href="javascript:getRandom();"><h1>Reccomend!</h1></a></div>
 </div>
-<script type="text/javascript">    var preferences= new Array("Pass","Pass","Pass","Pass");</script>
 <div id="box">
 <div id="tr" class="pass"><img class="yummy" src={{ lst[0] }}>
 <div id="1" class="yes"><a><button onclick="afunction1()">
@@ -387,7 +403,7 @@
 
 <div id="arrow">
     <a href=""><img alt="" src="../static/images/peacharrow.png">
-    <h3 href="javascript:storeSelections();">More</h3></a>
+    <h3>More</h3></a>
 </div>
 <div id="copyright">
     <p>

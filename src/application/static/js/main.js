@@ -16,3 +16,7 @@ var Utils = {
 };
 
 /* Your custom JavaScript here */
+document.getElementById("1").onclick = function(){
+    var color = document.getElementById("tl").style.backgroundColor=rgba(250,68,0,.4);
+    
+};

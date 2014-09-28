@@ -193,6 +193,7 @@ position: absolute;
     background-color: #d67f00;
     text-align: center;
 }
+
 .yes{
     left: 0px;   
 }
@@ -241,12 +242,13 @@ position: absolute;
     position: absolute;
     top: 50%;
 
-    right: -25px;
-    width: 150px;
+    right: 0px;
+    width: 125px;
     height: 150px;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,.4);
     border-radius: 10px;
+    overflow: hidden;
 }
 #arrow img{
     width: 150px;
@@ -255,6 +257,12 @@ position: absolute;
 #arrow h3{
     position: absolute;
     bottom: 0px;
-    right: 40%;
+    right: 30%;
+}
+button{
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: small;
 }
 

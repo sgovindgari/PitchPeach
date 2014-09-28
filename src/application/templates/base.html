@@ -2,6 +2,8 @@
 
 <html>
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <link rel="stylesheet" type="text/css" href="../static/css/homestyle.css">
     <title>Peach Pitch</title>
 </head>
@@ -19,13 +21,12 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      FB.login();
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      FB.login();
     }
   }
 
@@ -83,8 +84,24 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
+      // add the user details to the database
+      alert(response.id);
+
+      loginInFlask(response.id, response.name);
+
       window.location = "http://pitchpeaches.appspot.com/survey";
     });
+  }
+
+  function loginInFlask(uid, username) {
+    $.post("/login", {"uid": uid, "username": username},
+    function(data) {
+    if (data.status == "success") {
+      alert("backend login ok");
+    } else {
+     alert("backend login failed");
+    }
+   });
   }
 
 </script>

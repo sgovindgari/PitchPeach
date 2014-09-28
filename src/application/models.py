@@ -5,24 +5,16 @@ App Engine datastore models
 
 """
 
-from google.appengine.ext import ndb
-
-# TODO - Remove this
-class ExampleModel(ndb.Model):
-    """Example Model"""
-    example_name = ndb.StringProperty(required=True)
-    example_description = ndb.TextProperty(required=True)
-    added_by = ndb.UserProperty()
-    timestamp = ndb.DateTimeProperty(auto_now_add=True)
+from google.appengine.ext import db
 
 # Food entity contains a name and picture url stores as a text
 # Food can be liked by multiple people and one person can like many foods
-class Food(ndb.Model):
-	food_name = ndb.StringProperty(required=True)
-	food_picture = ndb.TextProperty(required=True)
+class Food(db.Model):
+	food_name = db.StringProperty(required=True)
+	food_picture = db.StringProperty(required=True)
 
-class User(ndb.Model):
+class User(db.Model):
     # this id is facebook id
-    id = ndb.IntegerProperty(required = True)
-    username = ndb.StringProperty(required = True)
-    foods = ndb.StructuredProperty(Food, repeated=True)
+    id = db.IntegerProperty(required = True)
+    username = db.StringProperty(required = True)
+    foods = db.ListProperty(db.Key)

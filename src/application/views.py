@@ -11,16 +11,17 @@ For example the *say_hello* handler, handling the URL route '/hello/<username>',
 from google.appengine.api import users
 from google.appengine.runtime.apiproxy_errors import CapabilityDisabledError
 
-from flask import request, render_template, flash, url_for, redirect
+from flask import request, jsonify, render_template, flash, url_for, redirect
 
 from flask_cache import Cache
-
+from google.appengine.ext import db
+import json
 from application import app
 from decorators import login_required, admin_required
 from models import User, Food
 import facebook
-from forms import UserForm, FoodForm
 
+from forms import UserForm, FoodForm
 
 # Flask-Cache (configured to use App Engine Memcache API)
 cache = Cache(app)
@@ -29,13 +30,23 @@ cache = Cache(app)
 def home():
     return render_template('base.html')
 
+@app.route('/post', methods=['POST'])
+def post():
+    return request.form['username']
+
 @app.route('/login', methods=['POST'])
-def login(uid, username):
-    user_form = UserForm()
-    if user_form.validate_on_submit():
-        user = User(user_form.username)
-        user.put()
-        return render_template('in.html')
+def loginPost():
+    if request.method == 'POST':
+    #flash("inside login method")
+        uid = request.form['uid']
+        username = request.form['username']
+        if uid and username:
+            user_form = UserForm()
+            if user_form.validate_on_submit():
+                flash("validated form")
+                user = User(user_form.username.data)
+                user.put()
+                return render_template('in.html')
 
 @app.route('/survey')
 def survey():
@@ -57,4 +68,3 @@ def get_foods(user_id):
     return user.food_list
 
 ################################################
-

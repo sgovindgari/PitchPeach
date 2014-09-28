@@ -32,21 +32,20 @@ def home():
 
 @app.route('/post', methods=['POST'])
 def post():
-    return request.form['username']
-
-@app.route('/login', methods=['POST'])
-def loginPost():
-    if request.method == 'POST':
-    #flash("inside login method")
-        uid = request.form['uid']
-        username = request.form['username']
-        if uid and username:
-            user_form = UserForm()
-            if user_form.validate_on_submit():
-                flash("validated form")
-                user = User(user_form.username.data)
-                user.put()
-                return render_template('in.html')
+    user_id = request.json['uid']
+    username = request.json['username']
+    food_list = []
+    if user_id and username:
+        form = UserForm()
+        q = db.GqlQuery("SELECT * "
+                        "FROM User "
+                        "WHERE username = :1", username)
+        if q.count() > 0:
+            flash("User already exists")
+            return request.json['uid']
+        new_user = User(id = int(user_id), username = username, foods = food_list)
+        new_user.put()
+    return request.json['uid']
 
 @app.route('/survey')
 def survey():

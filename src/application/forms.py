@@ -14,7 +14,9 @@ from wtforms.ext.appengine.db import model_form
 from .models import User, Food
 
 class UserForm(wtf.Form):
-    username = wtf.TextField('Username', validators=[validators.Required()])
+	id = wtf.TextField('Id', validators=[validators.Required()])
+	username = wtf.TextField('Username', validators=[validators.Required()])
+	foods = wtf.TextAreaField('Foods', validators=[validators.Required()])
 
 class FoodForm(wtf.Form):
 	name = wtf.TextField('Name', validators=[validators.Required()])

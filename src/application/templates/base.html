@@ -8,6 +8,8 @@
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Marvel:400,400italic,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="../static/css/homestyle.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
     <title>Yum Yuk</title>
 </head>
 
@@ -52,7 +54,7 @@
   });
   FB.Event.subscribe('auth.login', function () {
     testAPI();
-    window.location = "http://pitchpeaches.appspot.com/survey";
+    //window.location = "http://pitchpeaches.appspot.com/survey";
   });
 
   // Now that we've initialized the JavaScript SDK, we call 
@@ -89,7 +91,7 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       // add the user details to the database
-      alert(response.name);
+     // alert(response.name);
       loginInFlask(response.id, response.name);
 
      // window.location = "http://pitchpeaches.appspot.com/survey";
@@ -97,15 +99,21 @@
   }
 
   function loginInFlask(uid, username) {
-    alert(username);
-    $.post("/post", {uid: uid, username: username},
-    function(data) {
-    if (data.status == "success") {
-      alert(data);
-    } else {
-      alert("backend login failed");
-    }
-   }, "json");
+    //alert(username);
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json; charset=utf-8",
+      url: "/post",
+      data: JSON.stringify({uid: uid, username: username}),
+      success: function (data){
+        window.location = '/survey';
+        //console.log(data.username);
+      },
+      error : function(xhr, exception){
+        console.log(exception.toString());
+      }, 
+      dataType: "json"
+    });
   }
 
 </script>

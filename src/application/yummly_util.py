@@ -1,9 +1,6 @@
-import string
-import math
-from random import shuffle,sample,randint
-from operator import itemgetter
 import requests
 import json
+from random import randint
 import numpy
 
 # yummly credentials
@@ -37,24 +34,11 @@ def get_ingredients_locally():
     f = file('ingredients.json', 'r')
     return json_text_to_ingredients(f.read().decode('utf8'))
 
-def get_recipes():
-    num_pictures = 4
-    extra_criteria = {'requirePictures':'true'}
-    r = requests.get("http://api.yummly.com/v1/api/recipes", params=dict(credentials.items() + extra_criteria.items()))
-    rjson = json.loads(r.text)
-    
-    #for ka,va in rjson.iteritems():
-    #        print "kkkkkkk" + str(ka)
-    #        print "vvvvvvv" + str(va)
+def get_recipe_json(id_num):
+    r = requests.get("http://api.yummly.com/v1/api/recipe/"+id_num, params=credentials.items())
+    return json.loads(r.text)
 
-    recipe_ids = []
-    for m in rjson['matches']:
-        recipe_ids.append(m['id'])
-
-    def get_recipe_json(id_num):
-        r = requests.get("http://api.yummly.com/v1/api/recipe/"+id_num, params=credentials.items())
-        return json.loads(r.text)
-
+def get_recipe_urls(recipe_ids):
     recipe_jsons = map(get_recipe_json,recipe_ids)
 
     id_url_pairs = []
@@ -71,6 +55,21 @@ def get_recipes():
                 
                 id_url_pairs.append((rj_id,rj_url))            
 
-    return id_url_pairs[:4]
+    return id_url_pairs
 
-print get_recipes()
+def get_random_recipes():
+    num_pictures = 4
+    maxResult = 10
+    start=randint(0,100000)
+    extra_criteria = {'requirePictures':'true','maxResult':str(maxResult),'start':str(start)}
+    r = requests.get("http://api.yummly.com/v1/api/recipes", params=dict(credentials.items() + extra_criteria.items()))
+    rjson = json.loads(r.text)
+    
+    recipe_ids = []
+    for m in rjson['matches']:
+        recipe_ids.append(m['id'])
+
+    return get_recipe_urls(recipe_ids[:num_pictures])
+
+
+print get_random_recipes()

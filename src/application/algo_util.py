@@ -1,13 +1,23 @@
+import string
+import math
+from random import shuffle,sample,randint
+from operator import itemgetter
+from scipy import linalg, mat, dot
+import numpy
+import yummly_util
 
 def cos_sim(a,b):
     #a = mat([-0.711,0.730])
     #b = mat([-1.099,0.124])
     return dot(a,b.T)/linalg.norm(a)/linalg.norm(b)
 
-a = numpy.zeros(shape=(1,num_ingredients))
+#a = numpy.zeros(shape=(1,num_ingredients))
 
-foodList = 
+ingredients_list = yummly_util.get_ingredients_locally()
 
+num_ingredients = len(ingredients_list)
+
+#a = numpy.zeros(shape=(1,num_ingredients))
 
 
 users = {}
@@ -22,7 +32,7 @@ for user_id in range(20):
     dislikes = foodList[likes_i:dislikes_i]
     mehs = foodList[dislikes_i:num_entries]
     
-    users[user_id] = {'likes':set(likes),'dislikes':set(dislikes),'mehs':set(mehs)}
+    users[user_id] = {'recipes':set(likes),'dislikes':set(dislikes),'mehs':set(mehs)}
 
 for user_id,attributes in users.iteritems():
     print "User:" + str(user_id)
@@ -30,10 +40,7 @@ for user_id,attributes in users.iteritems():
         print  "\t>>>" + attribute + ":" + str(info)
 
 def get_closeness(user_id1,user_id2):
-    like_score = len(users[user_id1]['likes'].intersection(users[user_id2]['likes']))
-    dislike_score = len(users[user_id1]['dislikes'].intersection(users[user_id2]['dislikes']))
-    mehs_score = len(users[user_id1]['mehs'].intersection(users[user_id2]['mehs']))
-    return like_score + dislike_score + mehs_score
+    return cos_sim(users[user_id1],users[user_id2])
 
 def get_recommendations(user_id):
     if not users.has_key(user_id):
@@ -54,4 +61,3 @@ def get_recommendations(user_id):
     #while len(recommendations) < num_recommendations:
 
 get_recommendations(2)
-

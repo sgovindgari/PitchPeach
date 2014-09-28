@@ -52,6 +52,11 @@ body{
  left:250px;
  top: 70px;
 }
+#menu ul{
+    position: absolute;
+    left: 100px;
+    top:0px;
+}
 #menu{
     min-width: 600px;
     height: 100px;
@@ -185,9 +190,8 @@ position: absolute;
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    background-color: #e09f40;
+    background-color: #d67f00;
     text-align: center;
-    padding-top: -10px;
 }
 .yes{
     left: 0px;   

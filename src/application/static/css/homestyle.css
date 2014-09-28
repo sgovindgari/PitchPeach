@@ -51,6 +51,12 @@ body{
  left:250px;
  top: 70px;
 }
+#menu ul{
+    position: absolute;
+    left: 100px;
+    top:0px;
+    
+}
 #menu{
     min-width: 600px;
     height: 100px;

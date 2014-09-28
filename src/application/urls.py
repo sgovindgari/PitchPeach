@@ -17,6 +17,9 @@ from application import views
 # Home page
 app.add_url_rule('/', 'home', view_func=views.home)
 
+#post data
+app.add_url_rule('/post', 'post', view_func=views.post)
+
 # Say hello
 app.add_url_rule('/hello/<username>', 'say_hello', view_func=views.say_hello)
 

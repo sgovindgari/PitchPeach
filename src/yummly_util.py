@@ -39,12 +39,39 @@ def get_ingredients_locally():
     return json_text_to_ingredients(f.read().decode('utf8'))
 
 def get_recipes():
-    r = requests.get("http://api.yummly.com/v1/api/recipes", params=payload)
+    num_pictures = 4
+    extra_criteria = {'requirePictures':'true'}
+    r = requests.get("http://api.yummly.com/v1/api/recipes", params=dict(credentials.items() + extra_criteria.items()))
     rjson = json.loads(r.text)
-    for ka,va in rjson.iteritems():
-            print "k" + str(ka)
-            print "v" + str(va)
+    
+    #for ka,va in rjson.iteritems():
+    #        print "kkkkkkk" + str(ka)
+    #        print "vvvvvvv" + str(va)
 
+    recipe_ids = []
     for m in rjson['matches']:
-        print m['ingredients']
+        recipe_ids.append(m['id'])
 
+    def get_recipe_json(id_num):
+        r = requests.get("http://api.yummly.com/v1/api/recipe/"+id_num, params=credentials.items())
+        return json.loads(r.text)
+
+    recipe_jsons = map(get_recipe_json,recipe_ids)
+
+    id_url_pairs = []
+    for rj in recipe_jsons:
+        #print "ID:" +str(rj_id)
+        for image in rj['images']:
+            #print "IMAGE"
+            imageSizes = sorted(image['imageUrlsBySize'])
+            if len(imageSizes) >= 1:
+                #print "SIZE:" + str(imageSizes[0]) + "LARGEST URL:" + str(image['imageUrlsBySize'][imageSizes[0]])
+                
+                rj_id = rj['id']
+                rj_url = image['imageUrlsBySize'][imageSizes[0]]
+                
+                id_url_pairs.append((rj_id,rj_url))            
+
+    return id_url_pairs[:4]
+
+print get_recipes()

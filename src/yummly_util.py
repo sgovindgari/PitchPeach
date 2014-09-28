@@ -4,7 +4,6 @@ from random import shuffle,sample,randint
 from operator import itemgetter
 import requests
 import json
-from scipy import linalg, mat, dot
 import numpy
 
 # yummly credentials

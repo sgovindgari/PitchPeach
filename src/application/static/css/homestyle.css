@@ -46,11 +46,7 @@ body{
     background-color: rgba(0,0,0,.4);
 
 }
-#menui{
- position: absolute;
- left:800px;
- top: 10px;
-}
+
 #menu ul{
     position: absolute;
     left: 100px;
@@ -62,6 +58,15 @@ body{
     height: 100px;
     white-space: nowrap;
     overflow: hidden;
+}
+#menui{
+    position: absolute;
+    text-align: right;
+    left: 600%;
+    background-color: #d67f00;
+    border-radius: 10px;
+    padding: 5px;
+    top: 10px;
 }
 #content{
     position: absolute;

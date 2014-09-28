@@ -80,12 +80,10 @@
   // store the selections of this user for this food in the database
   function storeSelections(){
     $.ajax({
-      type: 'POST',
+      type: 'GET',
       contentType: "application/json; charset=utf-8",
-      url: "/storeSelections",
-      data: JSON.stringify({food_name: name, picture: picture, preference: preference}),
+      url: "/getMoreQuiz",
       success: function (data){
-        window.location = '/survey';
         //console.log(data.username);
       },
       error : function(xhr, exception){
@@ -115,7 +113,7 @@
 </div>
 
 <div id="box">
-<div id="tr" class="pass"><img class="yummy" alt="" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg">
+<div id="tr" class="pass"><img class="yummy" src={{ lst[0] }}>
 <div id="1" class="yes"><a><button onclick="afunction1()">
     <h2 id>Yum</h2></button></a></div>
 <script>
@@ -176,7 +174,7 @@
        
     }
 </script>
-<div id="tl"><p><img class="yummy" alt="" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg"></p>
+<div id="tl"><p><img class="yummy"  src={{ lst[1] }}></p>
 <div class="yes" id="5"><a>
     <button onclick="afunction5()"><h2>Yum</h2></button></a></div>
    <script>
@@ -238,7 +236,7 @@
 </script>
 </div>
 
-<div id="br"><p><img class="yummy" alt="" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg"></p>
+<div id="br"><p><img class="yummy"  src={{ lst[2] }}></p>
 <div class="yes" id="9"><a><button onclick="afunction9()">
     <h2>Yum</h2></button></a></div>
 <script>
@@ -302,7 +300,8 @@
     }
 </script>
 </div>
-<div id="bl"><img class="yummy" alt="" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg">
+<div id="bl"><img class="yummy" src={{ lst[3] }}>
+
 <div class="yes" id="13"><a><button onclick="afunction13()">
     <h2>Yum</h2></button></a></div>
 <script>

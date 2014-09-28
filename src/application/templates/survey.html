@@ -2,10 +2,13 @@
 
 <html>
 <head>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Marvel:400,400italic,700' rel='stylesheet' type='text/css'>
     <script language="javascript" src="../static/js/main.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <title>Yum Yuk</title>
 </head>
 <body>
@@ -103,11 +106,9 @@
     });
   }
 
-    function getRandom(){
-
+  function getRandom(){
     $.ajax({
       type: 'GET',
-      contentType: "application/json; charset=utf-8",
       url: "/getMoreOne",
       success: function (data){
         //console.log(data.username);
@@ -115,7 +116,6 @@
       error : function(xhr, exception){
         console.log(exception.toString());
       }, 
-      dataType: "json"
     });
   }
 </script>

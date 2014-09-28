@@ -75,7 +75,9 @@ def getMoreQuiz():
     return render_template('survey.html', lst = pic_url)
 
 @app.route('/getMoreOne')
-def getMoreOne():
+@app.route('/pitch')
+@app.route('/pitch/<lst>')
+def getMoreOne(lst=[]):
     lst = yummly_util.get_random_recipes()
     pic_url = []
     for recipe_id,recipe_url in lst:

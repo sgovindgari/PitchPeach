@@ -60,10 +60,6 @@ body{
     white-space: nowrap;
     overflow: hidden;
 }
-<<<<<<< HEAD
-#content,
-#about{
-=======
 #menui{
     position: absolute;
     text-align: right;
@@ -74,7 +70,6 @@ body{
     top: 10px;
 }
 #content{
->>>>>>> FETCH_HEAD
     position: absolute;
     margin-left: -400px;
     left: 50%;

@@ -74,6 +74,7 @@ def getMoreQuiz():
         pic_url.append(recipe_url)
     return render_template('survey.html', lst = pic_url)
 
+#TODO - Fix this
 @app.route('/getMoreOne')
 @app.route('/pitch')
 @app.route('/pitch/<lst>')

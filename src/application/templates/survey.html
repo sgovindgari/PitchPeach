@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Marvel:400,400italic,700' rel='stylesheet' type='text/css'>
+    <script language="javascript" src="../static/js/main.js"></script>
     <title>Yum Yuk</title>
 </head>
 <body>
@@ -76,6 +77,7 @@
     });
 }
 
+
 </script>
 
 <div id= "menu">
@@ -86,10 +88,10 @@
     </li>
     <div id="menui">
     <li>
-        <a href="about.html">About</a>
+        <a href="about.html" style="font-size:32px;">About</a>
     </li>
     <li>
-        <a href="javascript:fbLogoutUser();">Log Out</a>
+        <a href="javascript:fbLogoutUser();" style="font-size:32px;">Log Out</a>
     </li>
     </div>
 </ul>
@@ -97,59 +99,226 @@
 
 <div id="box">
 <div id="tr"><img class="yummy" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg">
-<div class="yes">
-    <h2>Yum</h2></div>
-<div class="no">
-    <h2>Yuk</h2>
+<div id="1" class="yes"><a><button onclick="afunction1()">
+    <h2 id="1">Yum</h2></button></a></div>
+<script>
+        function afunction1() {
+       document.getElementById("1").style.backgroundColor="green";
+       document.getElementById("2").style.backgroundColor="rgb(214,127,0)";
+       document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
+       document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="no" id="2">
+     <a>
+    <button onclick="afunction2()"><h2>Yuk</h2></button></a>
 </div>
-<div class="idk">
-    <h2>Pass</h2>
+<script>
+        function afunction2() {
+       document.getElementById("2").style.backgroundColor="red";
+       document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
+       document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
+       document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="idk" id="3">
+    <a><button onclick="afunction3()"><h2>Pass</h2></button></a>
 </div>
-<div class="meh">
-    <h2>Meh</h2>
-</div>
-    <img src="../static/images/meh.png">
+<script>
+        function afunction3() {
+        document.getElementById("2").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("3").style.backgroundColor="grey";
+        document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
+       
+    }
+</script>
+<div class="meh" id="4">
+    <a><button onclick="afunction4()"><h2>Meh</h2></button></a>
 </div>
 
+</div>
+<script>
+        function afunction4() {
+        document.getElementById("2").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("4").style.backgroundColor="yellow";
+    
+       
+    }
+</script>
 <div id="tl"><p><img class="yummy"  src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg"></p>
-<div class="yes">
-    <h2>Yum</h2></div>
-<div class="no">
-    <h2>Yuk</h2>
+<div class="yes" id="5"><a>
+    <button onclick="afunction5()"><h2>Yum</h2></a></button></div>
+   <script>
+        function afunction5() {
+        document.getElementById("5").style.backgroundColor="green";
+        document.getElementById("6").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("7").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("8").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="no" id="6">
+    <a>
+    <button onclick="afunction6()"><h2>Yuk</h2></button></a>
 </div>
-<div class="idk">
-    <h2>Pass</h2>
+<script>
+        function afunction6() {
+        document.getElementById("5").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("6").style.backgroundColor= "red";
+        document.getElementById("7").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("8").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="idk" id="7">
+   <a><button onclick="afunction7()"><h2>Pass</h2></button></a>
 </div>
-<div class="meh">
-    <h2>Meh</h2>
+<script>
+        function afunction7() {
+        document.getElementById("5").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("6").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("7").style.backgroundColor="grey";
+        document.getElementById("8").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="meh" id="8">
+    <a><button onclick="afunction8()"><h2>Meh</h2></button></a>
 </div>
+<script>
+        function afunction8() {
+        document.getElementById("5").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("6").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("7").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("8").style.backgroundColor="yellow";
+    
+       
+    }
+</script>
 </div>
 
 <div id="br"><p><img class="yummy"  src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg"></p>
-<div class="yes">
-    <h2>Yum</h2></div>
-<div class="no">
-    <h2>Yuk</h2>
+<div class="yes" id="9"><a><button onclick="afunction9()">
+    <h2>Yum</h2></button></a></div>
+<script>
+        function afunction9() {
+        document.getElementById("9").style.backgroundColor="green";
+        document.getElementById("10").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("11").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("12").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+  <div class="no" id="10"><a>
+    <button onclick="afunction10()"><h2>Yuk</h2></button></a></div>
+  <script>
+        function afunction10() {
+        document.getElementById("9").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("10").style.backgroundColor= "red";
+        document.getElementById("11").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("12").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="idk" id="11">
+
+    <a><button onclick="afunction11()"><h2>Pass</h2></button></a>
 </div>
-<div class="idk">
-    <h2>Pass</h2>
+<script>
+        function afunction11() {
+        document.getElementById("9").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("10").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("11").style.backgroundColor="grey";
+        document.getElementById("12").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+
+<div class="meh" id="12">
+
+    <a><button onclick="afunction12()"><h2>Meh</h2></button></a>
 </div>
-<div class="meh">
-    <h2>Meh</h2>
-</div>
+<script>
+        function afunction12() {
+        document.getElementById("9").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("10").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("11").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("12").style.backgroundColor="yellow";
+       
+    }
+</script>
 </div>
 <div id="bl"><img class="yummy" src="http://photographyinspired.com/wp-content/uploads/2014/08/foods-pizza-food-hd-2044527.jpg">
-<div class="yes">
-    <h2>Yum</h2></div>
-<div class="no">
-    <h2>Yuk</h2>
+<div class="yes" id="13"><a><button onclick="afunction13()">
+    <h2>Yum</h2></button></a></div>
+<script>
+        function afunction13() {
+        document.getElementById("13").style.backgroundColor="green";
+        document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("16").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+  <div class="no" id="14">
+    
+    
+<a>
+    <button onclick="afunction14()"><h2>Yuk</h2></button></a></div>
+  <script>
+        function afunction14() {
+        document.getElementById("13").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("14").style.backgroundColor= "red";
+        document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("16").style.backgroundColor="rgb(214,127,0";
+    
+       
+    }
+</script>
+<div class="idk" id="15">
+    
+    <a><button onclick="afunction15()"><h2>Pass</h2></button></a>
 </div>
-<div class="idk">
-    <h2>Pass</h2>
+<script>
+        function afunction15() {
+        document.getElementById("13").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("15").style.backgroundColor="grey";
+        document.getElementById("16").style.backgroundColor="rgb(214,127,0)";
+    
+       
+    }
+</script>
+<div class="meh" id="16">
+    
+    <a><button onclick="afunction16()"><h2>Meh</h2></button></a>
 </div>
-<div class="meh">
-    <h2>Meh</h2>
-</div>
+<script>
+        function afunction16() {
+        document.getElementById("13").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
+        document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
+        document.getElementById("16").style.backgroundColor="yellow";
+    
+       
+    }
+</script>
+    
+       
 </div>
 </div>
 <div id="sidebar">

@@ -80,10 +80,7 @@ def getMoreQuiz():
 @app.route('/pitch/<lst>')
 def getMoreOne(lst=[]):
     lst = yummly_util.get_random_recipes()
-    pic_url = []
-    for recipe_id,recipe_url in lst:
-        pic_url.append(recipe_url)
-    return render_template('pitch.html', lst = pic_url)
+    return render_template('pitch.html', lst = lst)
 
 @app.route('/survey')
 @app.route('/survey/<lst>')

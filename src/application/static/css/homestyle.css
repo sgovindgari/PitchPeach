@@ -47,11 +47,7 @@ body{
     background-color: rgba(0,0,0,.4);
 
 }
-#menui{
- position: absolute;
- left:800px;
- top: 10px;
-}
+
 #menu ul{
     position: absolute;
     left: 100px;
@@ -64,8 +60,21 @@ body{
     white-space: nowrap;
     overflow: hidden;
 }
+<<<<<<< HEAD
 #content,
 #about{
+=======
+#menui{
+    position: absolute;
+    text-align: right;
+    left: 600%;
+    background-color: #d67f00;
+    border-radius: 10px;
+    padding: 5px;
+    top: 10px;
+}
+#content{
+>>>>>>> FETCH_HEAD
     position: absolute;
     margin-left: -400px;
     left: 50%;

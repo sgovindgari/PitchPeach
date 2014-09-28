@@ -39,7 +39,8 @@ body{
 #right,
 #content,
 #left,
-#box {
+#box,
+#about{
     border: 1px rgba(0,0,0,.4);
     border-radius: 10px;
     background-color: rgb(0,0,0);
@@ -63,7 +64,8 @@ body{
     white-space: nowrap;
     overflow: hidden;
 }
-#content{
+#content,
+#about{
     position: absolute;
     margin-left: -400px;
     left: 50%;
@@ -257,5 +259,16 @@ position: absolute;
     position: absolute;
     bottom: 0px;
     right: 40%;
+}
+#about p,
+#about h1{
+    margin: 20px;
+    
+}
+
+#menuguy{
+ position: absolute;
+ left:250px;
+ top: 0px;
 }
 

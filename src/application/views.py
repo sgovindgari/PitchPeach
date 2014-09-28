@@ -47,6 +47,16 @@ def post():
         new_user.put()
     return request.json['uid']
 
+# this method stores this user's preferences to the db
+@app.route('/storeSelections', methods=['POST'])
+def storeSelections(userid):
+    return
+
+# gets more foods when More is clicked on the profile page
+@app.route('/getMoreQuiz', methods=['GET'])
+def getMoreQuiz():
+    return
+
 @app.route('/survey')
 def survey():
     return render_template('survey.html')

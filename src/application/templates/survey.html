@@ -76,8 +76,23 @@
         }
     });
 }
-
-
+  // store the selections of this user for this food in the database
+  function storeSelections(){
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json; charset=utf-8",
+      url: "/storeSelections",
+      data: JSON.stringify({food_name: name, picture: picture, preference: preference}),
+      success: function (data){
+        window.location = '/survey';
+        //console.log(data.username);
+      },
+      error : function(xhr, exception){
+        console.log(exception.toString());
+      }, 
+      dataType: "json"
+    });
+  }
 </script>
 
 <div id= "menu">
@@ -120,9 +135,7 @@
        document.getElementById("2").style.backgroundColor="red";
        document.getElementById("1").style.backgroundColor= "rgb(214,127,0)";
        document.getElementById("3").style.backgroundColor="rgb(214,127,0)";
-       document.getElementById("4").style.backgroundColor="rgb(214,127,0)";
-    
-       
+       document.getElementById("4").style.backgroundColor="rgb(214,127,0)";  
     }
 </script>
 <div class="idk" id="3">
@@ -312,9 +325,7 @@
         document.getElementById("13").style.backgroundColor="rgb(214,127,0)";
         document.getElementById("14").style.backgroundColor= "rgb(214,127,0)";
         document.getElementById("15").style.backgroundColor="rgb(214,127,0)";
-        document.getElementById("16").style.backgroundColor="yellow";
-    
-       
+        document.getElementById("16").style.backgroundColor="yellow";    
     }
 </script>
     
@@ -332,7 +343,7 @@
 
 <div id="arrow">
     <a href=""><img src="../static/images/peacharrow.png">
-    <h3>More</h3></a>
+    <h3 href="javascript:storeSelections();">More</h3></a>
 </div>
 <div id="copyright">
     <p>

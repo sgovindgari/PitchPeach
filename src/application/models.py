@@ -12,6 +12,7 @@ from google.appengine.ext import db
 class Food(db.Model):
 	food_name = db.StringProperty(required=True)
 	food_picture = db.StringProperty(required=True)
+	preference = db.IntegerProperty(required=True)
 
 class User(db.Model):
     # this id is facebook id

@@ -20,6 +20,7 @@ from application import app
 from decorators import login_required, admin_required
 from models import User, Food
 import facebook
+from application import yummly_util
 
 from forms import UserForm, FoodForm
 
@@ -53,13 +54,22 @@ def storeSelections(userid):
     return
 
 # gets more foods when More is clicked on the profile page
-@app.route('/getMoreQuiz', methods=['GET'])
+@app.route('/getMoreQuiz')
 def getMoreQuiz():
-    return
+    lst = yummly_util.get_recipes()
+    pic_url = []
+    for recipe_id,recipe_url in lst:
+        pic_url.append(recipe_url)
+    return render_template('survey.html', lst = pic_url)
 
 @app.route('/survey')
-def survey():
-    return render_template('survey.html')
+@app.route('/survey/<lst>')
+def survey(lst=[]):
+    lst = yummly_util.get_recipes()
+    pic_url = []
+    for recipe_id,recipe_url in lst:
+        pic_url.append(recipe_url)
+    return render_template('survey.html', lst = pic_url)
 
 def say_hello(username):
     """Contrived example to demonstrate Flask's url routing capabilities"""

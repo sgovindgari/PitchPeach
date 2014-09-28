@@ -27,10 +27,19 @@ h2{
 }
 
 #menu,
+h1,
+h2
+{
+    font-family: 'Lobster', 'Monotype sorts', serif;
+}
+body{
+    font-family: 'Marvel', 'Helvetica', sans-serif;
+}
+#menu,
 #right,
 #content,
-#left
-{
+#left,
+#box {
     border: 1px rgba(0,0,0,.4);
     border-radius: 10px;
     background-color: rgb(0,0,0);
@@ -40,10 +49,17 @@ h2{
 #menui{
  position: absolute;
  left:250px;
- top: 55px;
+ top: 70px;
+}
+#menu ul{
+    position: absolute;
+    left: 100px;
+    top:0px;
+    
 }
 #menu{
     min-width: 600px;
+    height: 100px;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -89,15 +105,15 @@ h2{
 }
 #box{
     position: absolute;
-    right: 8%;
-    margin-left: 5%;
-    background-color: orange;
-    border: 1px orange;
+    left: 50%;
+    top: 115px;
+    margin-left: -510px;
+    margin-bottom: 20px;
     border-radius: 10px;
     padding: 20px;
     color: White;
-    width: 900px;
-    height: 500px;
+    width: 1000px;
+    height: 580px;
   
 
     
@@ -110,25 +126,136 @@ h2{
     font-size: 10px;
     text-align: right;
 }
-table{
-    position: relative;
-    left: 5%;
+#tr,
+#tl,
+#br,
+#bl{
+position: absolute;
+ width: 450px;
+ height: 275px;
+ border: 15px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
 
+}
+
+#tr,
+#br{
+    left:550px;
+
+}
+#tl,
+#bl{
+    left: 50px;
+}
+
+#tr,
+#tl{
+    top:30px;
+}
+
+#br,
+#bl{
+    top:330px;
+}
+
+
+
+
+#instr{
+    position: absolute;
+    width: 80%;
+    margin-top:20px;
+    left: 50%;
+    margin-left: -35%;
+}
+.yummy{
     
-}
-#tr td,
-#tl td,
-#br td,
-#bl td{
-    display: table-cell;
-    padding: 0px;
-
-}
-#box img{
-    width: 400px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    margin-left: -200px;
+    width:400px;
     border-radius: 10px;
 }
 
+.yes,
+.no,
+.idk,
+.meh{
+    position: absolute;
+    margin: auto;
+    top:-10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #e09f40;
+    text-align: center;
+    padding-top: -10px;
+}
+.yes{
+    left: 0px;   
+}
+.meh{
+    left: 75px;
+}
+.no{
+    left: 150px;
+}
+.idk{
+    right: 0px;
+}
 
 
+
+.banner{
+    position: absolute;
+    text-indent: 50px;
+    width: 80%;
+    margin-top:20px;
+    left: 50%;
+    margin-left: -40%;
+    width: 80%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
+
+}
+#sidebar{
+    position: absolute;
+    left: 0px;
+    margin-top: 11px;
+    width: 140px;
+    padding-left: 10px;;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
+}
+#sidebar img{
+    width: 150px;
+}
+#sidebar h4{
+    margin-right: 20px;
+}
+#arrow{
+    position: absolute;
+    top: 50%;
+
+    right: -25px;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.4);
+    border-radius: 10px;
+}
+#arrow img{
+    width: 150px;
+    
+}
+#arrow h3{
+    position: absolute;
+    bottom: 0px;
+    right: 40%;
+}
 

@@ -1,3 +1,4 @@
+
 html{
     background-image: url(../images/wood.jpeg);
     background-size: cover;
@@ -27,6 +28,15 @@ h2{
 }
 
 #menu,
+h1,
+h2
+{
+    font-family: 'Lobster', 'Monotype sorts', serif;
+}
+body{
+    font-family: 'Marvel', 'Helvetica', sans-serif;
+}
+#menu,
 #right,
 #content,
 #left,
@@ -40,10 +50,16 @@ h2{
 #menui{
  position: absolute;
  left:250px;
- top: 55px;
+ top: 70px;
+}
+#menu ul{
+    position: absolute;
+    left: 100px;
+    top:0px;
 }
 #menu{
     min-width: 600px;
+    height: 100px;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -170,28 +186,28 @@ position: absolute;
 .meh{
     position: absolute;
     margin: auto;
-
-}
-
-.yes,
-.no,
-.idk,
-.meh{
-    top: -80px;
-    right: -80px;
-}
-.no{
-    left: 95px;
+    top:-10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #d67f00;
+    text-align: center;
 }
 .yes{
-    left: -65px;
+    left: 0px;   
 }
-
 .meh{
-    left: 15px;
- 
-
+    left: 75px;
 }
+.no{
+    left: 150px;
+}
+.idk{
+    right: 0px;
+}
+
+
+
 .banner{
     position: absolute;
     text-indent: 50px;
@@ -210,13 +226,16 @@ position: absolute;
     left: 0px;
     margin-top: 11px;
     width: 140px;
-    padding-left: 10px;
+    padding-left: 10px;;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,.4);
     border-radius: 10px;
 }
 #sidebar img{
     width: 150px;
+}
+#sidebar h4{
+    margin-right: 20px;
 }
 #arrow{
     position: absolute;
@@ -233,9 +252,9 @@ position: absolute;
     width: 150px;
     
 }
-#arrow h4{
+#arrow h3{
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     right: 40%;
 }
 

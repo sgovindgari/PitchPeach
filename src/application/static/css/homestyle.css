@@ -63,8 +63,9 @@ body{
 #menui{
     position: absolute;
     text-align: right;
-    left: 600%;
-    background-color: #d67f00;
+    width: 300px;
+    left: 500%;
+    /*background-color: #d67f00;*/
     border-radius: 10px;
     padding: 5px;
     top: 10px;

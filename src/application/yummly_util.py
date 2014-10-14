@@ -52,24 +52,27 @@ def get_recipe_urls(recipe_ids):
                 
                 rj_id = rj['id']
                 rj_url = image['imageUrlsBySize'][imageSizes[0]]
-                
-                id_url_pairs.append((rj_id,rj_url))            
+                rj_name = rj['name']
+                id_url_pairs.append((rj_id,rj_url,rj_name))            
 
     return id_url_pairs
 
-def get_random_recipes():
-    num_pictures = 4
-    maxResult = 10
+def get_n_recipes(n=4):
+    maxResult = max(10,n)
     start=randint(0,100000)
     extra_criteria = {'requirePictures':'true','maxResult':str(maxResult),'start':str(start)}
     r = requests.get("http://api.yummly.com/v1/api/recipes", params=dict(credentials.items() + extra_criteria.items()))
     rjson = json.loads(r.text)
+    return rjson
+
+def get_random_recipes(num = 4):
+    rjson = get_n_recipes(num)
     
     recipe_ids = []
     for m in rjson['matches']:
         recipe_ids.append(m['id'])
 
-    return get_recipe_urls(recipe_ids[:num_pictures])
+    return get_recipe_urls(recipe_ids[:num])
 
 
-print get_random_recipes()
+# print get_random_recipes()

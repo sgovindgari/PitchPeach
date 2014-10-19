@@ -4,19 +4,18 @@ from random import shuffle,sample,randint
 from operator import itemgetter
 from scipy import linalg, mat, dot
 import numpy
-#import yummly_util
-####### CHANGE
-
-import yummly_backup1010 as yummly_util
+import yummly_util
 
 def get_users():
+	# Without database working properly, working with dummy accounts for now.
+
     # yummly_util.update_local_ingredients() # run to update local data
     ingredients_list = yummly_util.get_ingredients_locally()
     num_ingredients = len(ingredients_list)
 
     freqency_vector = numpy.zeros(num_ingredients)
 
-    range_of_ids = 20 # Without database setup, working with fake accounts for now.
+    num_fake_accounts = 20 
     rjson = yummly_util.get_n_recipes(n=100)
     recipes = []
     for m in rjson['matches']:
@@ -24,7 +23,7 @@ def get_users():
 
     users = {}
     
-    for user_id in range(range_of_ids):
+    for user_id in range(num_fake_accounts):
 
         user_vector = numpy.zeros(num_ingredients)
         likes = []
@@ -43,7 +42,7 @@ def get_users():
                 mehs.append(fid)
             
             for ingredient in fings:
-                i = ingredients_list.index(ingredient)
+                i = ingredients_list.index(ingredient) 
                 user_vector[i] = user_vector[i] + score
                 freqency_vector[i] = freqency_vector[i] + 1
 
@@ -68,14 +67,14 @@ def print_current_users():
 def cos_sim(a,b):
     return dot(a,b.T)/linalg.norm(a)/linalg.norm(b)
 
+def get_closeness(user_id1,user_id2):
+    return cos_sim(users[user_id1]['vector'],users[user_id2]['vector'])
+
+def get_unique_recipe_ids(user_id1,user_id2):
+    return list(users[user_id2]['likes'] - users[user_id1]['likes'] - users[user_id1]['dislikes'] - users[user_id1]['mehs'])
+
 def get_recommendations(user_id):
     users = get_users() 
-
-    def get_closeness(user_id1,user_id2):
-        return cos_sim(users[user_id1]['vector'],users[user_id2]['vector'])
-
-    def get_unique_recipe_ids(user_id1,user_id2):
-        return list(users[user_id2]['likes'] - users[user_id1]['likes'] - users[user_id1]['dislikes'] - users[user_id1]['mehs'])
 
     if not users.has_key(user_id):
         return None
@@ -99,5 +98,6 @@ def get_recommendations(user_id):
         sim_user_id_index = sim_user_id_index + 1
     
     return recommendations[:num_recommendations]
-    
+
+# To Test    
 get_recommendations(2)

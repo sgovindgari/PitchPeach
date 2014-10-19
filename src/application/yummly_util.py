@@ -43,13 +43,9 @@ def get_recipe_urls(recipe_ids):
 
     id_url_pairs = []
     for rj in recipe_jsons:
-        #print "ID:" +str(rj_id)
         for image in rj['images']:
-            #print "IMAGE"
             imageSizes = sorted(image['imageUrlsBySize'])
-            if len(imageSizes) >= 1:
-                #print "SIZE:" + str(imageSizes[0]) + "LARGEST URL:" + str(image['imageUrlsBySize'][imageSizes[0]])
-                
+            if len(imageSizes) >= 1:       
                 rj_id = rj['id']
                 rj_url = image['imageUrlsBySize'][imageSizes[0]]
                 rj_name = rj['name']
@@ -57,7 +53,7 @@ def get_recipe_urls(recipe_ids):
 
     return id_url_pairs
 
-def get_n_recipes(n=4):
+def get_n_recipes(n):
     maxResult = max(10,n)
     start=randint(0,100000)
     extra_criteria = {'requirePictures':'true','maxResult':str(maxResult),'start':str(start)}
@@ -65,14 +61,14 @@ def get_n_recipes(n=4):
     rjson = json.loads(r.text)
     return rjson
 
-def get_random_recipes(num = 4):
-    rjson = get_n_recipes(num)
+def get_random_recipes(numRecipes = 4):
+    rjson = get_n_recipes(numRecipes)
     
     recipe_ids = []
     for m in rjson['matches']:
         recipe_ids.append(m['id'])
 
-    return get_recipe_urls(recipe_ids[:num])
+    return get_recipe_urls(recipe_ids[:numRecipes])
 
-
+# To Test
 # print get_random_recipes()
